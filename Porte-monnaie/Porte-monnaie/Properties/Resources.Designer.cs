@@ -63,6 +63,16 @@ namespace Porte_monnaie.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap chart_pie_title {
+            get {
+                object obj = ResourceManager.GetObject("chart_pie_title", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap database_add {
             get {
                 object obj = ResourceManager.GetObject("database_add", resourceCulture);

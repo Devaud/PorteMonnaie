@@ -38,8 +38,7 @@ namespace Porte_monnaie
 
         private void btnStats_Click(object sender, EventArgs e)
         {
-            Graphique frmGraphique = new Graphique();
-            frmGraphique.ShowDialog();
+           
         }
 
         private void BtnDepense_Click(object sender, EventArgs e)
@@ -71,7 +70,7 @@ namespace Porte_monnaie
             List<string> listTransactions = new List<string>();
             foreach (Transactions tr in transactions)
             {
-                string item = AjusterText(tr.Motif, 20) + " " + AjusterText(tr.Categories.NomCategorie, 20) + " ";
+                string item = AjusterText(tr.Motif, 25) + " " + AjusterText(tr.Categories.NomCategorie, 15) + " ";
                 item += (tr.Type == "Débit") ? "-" : "+";
                 item += tr.Montant;
                 
@@ -87,7 +86,7 @@ namespace Porte_monnaie
         /// </summary>
         /// <param name="text">Text à modifier</param>
         /// <param name="tailleText">Taille du texte</param>
-        /// <returns></returns>
+        /// <returns>Le texte avec le bon nombre d'espace après</returns>
         private string AjusterText(string text, int tailleText)
         {
             while (text.Length < tailleText)
@@ -160,6 +159,12 @@ namespace Porte_monnaie
             frmCat.ChargeCategories();
 
             frmCat.ShowDialog();
+        }
+
+        private void statistiquesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Graphique frmGraphique = new Graphique();
+            frmGraphique.ShowDialog();
         }
     }
 }

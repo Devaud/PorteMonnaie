@@ -178,6 +178,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Porte-monnaie.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\chart_pie_title.png" />
     <None Include="Resources\database_edit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

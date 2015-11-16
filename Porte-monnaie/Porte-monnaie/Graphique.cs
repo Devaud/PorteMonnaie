@@ -20,6 +20,11 @@ namespace Porte_monnaie
             InitializeComponent();
         }
 
+        /// <summary>
+        ///  Charge les graphiques
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Graphique_Load(object sender, EventArgs e)
         {
             InitialisesGraphique("Débit", CammembertDepense);

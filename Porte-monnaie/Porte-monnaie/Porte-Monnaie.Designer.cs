@@ -32,7 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblSoldeTotal = new System.Windows.Forms.Label();
             this.BtnDepense = new System.Windows.Forms.Button();
-            this.btnStats = new System.Windows.Forms.Button();
             this.BtnAjout = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tStstbNames = new System.Windows.Forms.ToolStripStatusLabel();
@@ -43,9 +42,10 @@
             this.lbxTransactions = new System.Windows.Forms.ListBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.catégoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statistiquesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.porteMonnaieDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.porteMonnaieDataSetBindingSource)).BeginInit();
@@ -85,18 +85,6 @@
             this.BtnDepense.Text = "Dépense";
             this.BtnDepense.UseVisualStyleBackColor = true;
             this.BtnDepense.Click += new System.EventHandler(this.BtnDepense_Click);
-            // 
-            // btnStats
-            // 
-            this.btnStats.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnStats.Location = new System.Drawing.Point(150, 77);
-            this.btnStats.MinimumSize = new System.Drawing.Size(75, 23);
-            this.btnStats.Name = "btnStats";
-            this.btnStats.Size = new System.Drawing.Size(75, 23);
-            this.btnStats.TabIndex = 3;
-            this.btnStats.Text = "Statistiques";
-            this.btnStats.UseVisualStyleBackColor = true;
-            this.btnStats.Click += new System.EventHandler(this.btnStats_Click);
             // 
             // BtnAjout
             // 
@@ -150,10 +138,12 @@
             this.lbxTransactions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbxTransactions.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbxTransactions.FormattingEnabled = true;
+            this.lbxTransactions.ItemHeight = 15;
             this.lbxTransactions.Location = new System.Drawing.Point(17, 122);
             this.lbxTransactions.Name = "lbxTransactions";
-            this.lbxTransactions.Size = new System.Drawing.Size(336, 225);
+            this.lbxTransactions.Size = new System.Drawing.Size(336, 214);
             this.lbxTransactions.TabIndex = 7;
             // 
             // menuStrip1
@@ -175,6 +165,15 @@
             this.fichierToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.fichierToolStripMenuItem.Text = "Fichier";
             // 
+            // editionToolStripMenuItem
+            // 
+            this.editionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.catégoriesToolStripMenuItem,
+            this.statistiquesToolStripMenuItem});
+            this.editionToolStripMenuItem.Name = "editionToolStripMenuItem";
+            this.editionToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.editionToolStripMenuItem.Text = "Options";
+            // 
             // quitterToolStripMenuItem
             // 
             this.quitterToolStripMenuItem.Image = global::Porte_monnaie.Properties.Resources.door_out;
@@ -183,14 +182,6 @@
             this.quitterToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.quitterToolStripMenuItem.Text = "Quitter";
             this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
-            // 
-            // editionToolStripMenuItem
-            // 
-            this.editionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.catégoriesToolStripMenuItem});
-            this.editionToolStripMenuItem.Name = "editionToolStripMenuItem";
-            this.editionToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.editionToolStripMenuItem.Text = "Edition";
             // 
             // catégoriesToolStripMenuItem
             // 
@@ -201,6 +192,14 @@
             this.catégoriesToolStripMenuItem.Text = "Catégories";
             this.catégoriesToolStripMenuItem.Click += new System.EventHandler(this.catégoriesToolStripMenuItem_Click);
             // 
+            // statistiquesToolStripMenuItem
+            // 
+            this.statistiquesToolStripMenuItem.Image = global::Porte_monnaie.Properties.Resources.chart_pie_title;
+            this.statistiquesToolStripMenuItem.Name = "statistiquesToolStripMenuItem";
+            this.statistiquesToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.statistiquesToolStripMenuItem.Text = "Statistiques";
+            this.statistiquesToolStripMenuItem.Click += new System.EventHandler(this.statistiquesToolStripMenuItem_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -210,7 +209,6 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.BtnAjout);
-            this.Controls.Add(this.btnStats);
             this.Controls.Add(this.BtnDepense);
             this.Controls.Add(this.lblSoldeTotal);
             this.Controls.Add(this.label1);
@@ -236,7 +234,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblSoldeTotal;
         private System.Windows.Forms.Button BtnDepense;
-        private System.Windows.Forms.Button btnStats;
         private System.Windows.Forms.Button BtnAjout;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel tStstbNames;
@@ -250,6 +247,7 @@
         private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem catégoriesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem statistiquesToolStripMenuItem;
 
 
     }
