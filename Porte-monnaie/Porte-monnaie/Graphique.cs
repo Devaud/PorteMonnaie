@@ -10,7 +10,8 @@ namespace Porte_monnaie
     {
         Chart CammembertDepense = new Chart();
         Chart CammembertCredit = new Chart();
-        Color backColor = Color.Green;
+        //choix du nom volontaire afin que tout le fond change de couleur
+        Color BackColor = Color.Green;
         Color LegendColor = Color.CadetBlue;
         String PaletteStyle = "Excel";
 
@@ -101,7 +102,7 @@ namespace Porte_monnaie
                     break;
             }
 
-            cammembert.BackColor = backColor;
+            cammembert.BackColor = BackColor;
             //titre du graphique
             cammembert.Titles.Add("Etat des " + motif);
             cammembert.ChartAreas[0].BackColor = Color.Transparent;
