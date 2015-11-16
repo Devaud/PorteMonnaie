@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Porte-monnaie" Class="PorteMonnaiesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Porte-monnaie.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="Porte_monnaie.Properties.Settings" SettingsPropertyName="Porte_monnaieConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.PorteMonnaies" Member="PorteMonnaies">
+    <Type Name="PorteMonnaies">
+      <Column Name="IdPorteMonnaie" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NomPorteMonnaie" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SoldePorteMonnaie" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Association Name="PorteMonnaies_Transactions" Member="Transactions" ThisKey="IdPorteMonnaie" OtherKey="IdPorteMonnaie" Type="Transactions" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Transactions" Member="Transactions">
+    <Type Name="Transactions">
+      <Column Name="IdTransaction" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Motif" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Montant" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="IdCategorie" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdPorteMonnaie" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Association Name="PorteMonnaies_Transactions" Member="PorteMonnaies" ThisKey="IdPorteMonnaie" OtherKey="IdPorteMonnaie" Type="PorteMonnaies" IsForeignKey="true" />
+      <Association Name="Categories_Transactions" Member="Categories" ThisKey="IdCategorie" OtherKey="IdCategorie" Type="Categories" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Categories" Member="Categories">
+    <Type Name="Categories">
+      <Column Name="IdCategorie" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NomCategorie" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TypeCategorie" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Categories_Transactions" Member="Transactions" ThisKey="IdCategorie" OtherKey="IdCategorie" Type="Transactions" />
+    </Type>
+  </Table>
+</Database>

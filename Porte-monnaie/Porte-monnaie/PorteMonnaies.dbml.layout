@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="PorteMonnaies">
+  <DataContextMoniker Name="/PorteMonnaiesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="72976111-5f20-484a-9f75-37e3aab2559d" absoluteBounds="6, 0.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/PorteMonnaiesDataContext/PorteMonnaies" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7320840f-d591-4250-b380-5cd642d5cd00" absoluteBounds="6.015, 0.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4ff3ebf2-236c-44ec-b267-ba13d17cfcf6" absoluteBounds="3.25, 0.875, 2, 1.9631982421875">
+      <DataClassMoniker Name="/PorteMonnaiesDataContext/Transactions" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1bf9eaf9-5a44-4b8f-b1de-6710c2ca98d4" absoluteBounds="3.265, 1.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6 : 1.38064697265625); (5.25 : 1.38064697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/PorteMonnaiesDataContext/PorteMonnaies/PorteMonnaies_Transactions" />
+      <nodes>
+        <classShapeMoniker Id="72976111-5f20-484a-9f75-37e3aab2559d" />
+        <classShapeMoniker Id="4ff3ebf2-236c-44ec-b267-ba13d17cfcf6" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="86646f2e-1b4c-44f6-87a5-69f614ce0486" absoluteBounds="0.5, 1.125, 2, 1.3862939453125">
+      <DataClassMoniker Name="/PorteMonnaiesDataContext/Categories" />
+      <nestedChildShapes>
+        <elementListCompartment Id="18a4d40e-3200-48a8-a3c1-5d86d6d25979" absoluteBounds="0.51500000000000012, 1.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 1.81814697265625); (3.25 : 1.81814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PorteMonnaiesDataContext/Categories/Categories_Transactions" />
+      <nodes>
+        <classShapeMoniker Id="86646f2e-1b4c-44f6-87a5-69f614ce0486" />
+        <classShapeMoniker Id="4ff3ebf2-236c-44ec-b267-ba13d17cfcf6" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
