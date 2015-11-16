@@ -178,9 +178,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Porte-monnaie.mdf</DependentUpon>
     </Content>
-    <None Include="Resources\database_edit.png" />
-    <None Include="Resources\database_delete.png" />
-    <None Include="Resources\database_add.png" />
+    <None Include="Resources\database_edit.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\database_delete.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\database_add.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\manage_sources.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

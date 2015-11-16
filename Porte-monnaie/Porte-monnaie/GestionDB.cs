@@ -223,6 +223,53 @@ namespace Porte_monnaie
         }
 
         /// <summary>
+        /// Met à jour la categorie
+        /// </summary>
+        /// <param name="nouveauNom">Nouveau nom de la catégorie</param>
+        /// <param name="type">Type de la catégorie</param>
+        /// <param name="nomCategorie">Nom de la catégorie</param>
+        static public void UpdateCategorie(string nouveauNom, string type, string nomCategorie)
+        {
+            var result = from categorie in PorteMonnaieDb.Categories where categorie.NomCategorie == nomCategorie select categorie;
+
+            foreach (var cat in result)
+            {
+                cat.NomCategorie = nouveauNom;
+                cat.TypeCategorie = type;
+            }
+
+            try
+            {
+                PorteMonnaieDb.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Suppression d'une catégorie
+        /// </summary>
+        /// <param name="nomCategorie">Nom de la catégorie à supprimer</param>
+        static public void DeleteCategorie(string nomCategorie)
+        {
+            var result = from categorie in PorteMonnaieDb.Categories where categorie.NomCategorie == nomCategorie select categorie;
+
+            foreach (var cat in result)
+                PorteMonnaieDb.Categories.DeleteOnSubmit(cat);
+
+            try
+            {
+                PorteMonnaieDb.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
         /// Récupère l'id d'une catégorie selon son nom
         /// </summary>
         /// <param name="nomCategorie">Nom de la catégorie</param>

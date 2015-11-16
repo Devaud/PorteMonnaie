@@ -35,9 +35,10 @@
             this.btnSupprimer = new System.Windows.Forms.Button();
             this.btnAjouterCategories = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tbxNomCategories = new System.Windows.Forms.TextBox();
-            this.cbxType = new System.Windows.Forms.ComboBox();
             this.btnValider = new System.Windows.Forms.Button();
+            this.cbxType = new System.Windows.Forms.ComboBox();
+            this.tbxNomCategories = new System.Windows.Forms.TextBox();
+            this.btnAnnuler = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,22 +108,26 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnAnnuler);
             this.groupBox1.Controls.Add(this.btnValider);
             this.groupBox1.Controls.Add(this.cbxType);
             this.groupBox1.Controls.Add(this.tbxNomCategories);
-            this.groupBox1.Location = new System.Drawing.Point(12, 416);
+            this.groupBox1.Location = new System.Drawing.Point(12, 412);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(546, 78);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Categorie information";
             // 
-            // tbxNomCategories
+            // btnValider
             // 
-            this.tbxNomCategories.Location = new System.Drawing.Point(6, 19);
-            this.tbxNomCategories.Name = "tbxNomCategories";
-            this.tbxNomCategories.Size = new System.Drawing.Size(233, 20);
-            this.tbxNomCategories.TabIndex = 0;
+            this.btnValider.Location = new System.Drawing.Point(465, 16);
+            this.btnValider.Name = "btnValider";
+            this.btnValider.Size = new System.Drawing.Size(75, 23);
+            this.btnValider.TabIndex = 1;
+            this.btnValider.Text = "Valider";
+            this.btnValider.UseVisualStyleBackColor = true;
+            this.btnValider.Click += new System.EventHandler(this.btnValider_Click);
             // 
             // cbxType
             // 
@@ -135,22 +140,28 @@
             this.cbxType.Size = new System.Drawing.Size(233, 21);
             this.cbxType.TabIndex = 0;
             // 
-            // btnValider
+            // tbxNomCategories
             // 
-            this.btnValider.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnValider.Location = new System.Drawing.Point(465, 16);
-            this.btnValider.Name = "btnValider";
-            this.btnValider.Size = new System.Drawing.Size(75, 23);
-            this.btnValider.TabIndex = 1;
-            this.btnValider.Text = "Valider";
-            this.btnValider.UseVisualStyleBackColor = true;
-            this.btnValider.Click += new System.EventHandler(this.btnValider_Click);
+            this.tbxNomCategories.Location = new System.Drawing.Point(6, 19);
+            this.tbxNomCategories.Name = "tbxNomCategories";
+            this.tbxNomCategories.Size = new System.Drawing.Size(233, 20);
+            this.tbxNomCategories.TabIndex = 0;
+            // 
+            // btnAnnuler
+            // 
+            this.btnAnnuler.Location = new System.Drawing.Point(465, 45);
+            this.btnAnnuler.Name = "btnAnnuler";
+            this.btnAnnuler.Size = new System.Drawing.Size(75, 23);
+            this.btnAnnuler.TabIndex = 2;
+            this.btnAnnuler.Text = "Annuler";
+            this.btnAnnuler.UseVisualStyleBackColor = true;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
             // EditionCategories
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(570, 506);
+            this.ClientSize = new System.Drawing.Size(570, 497);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.btnSupprimer);
@@ -179,5 +190,6 @@
         private System.Windows.Forms.ComboBox cbxType;
         private System.Windows.Forms.TextBox tbxNomCategories;
         private System.Windows.Forms.Button btnValider;
+        private System.Windows.Forms.Button btnAnnuler;
     }
 }
