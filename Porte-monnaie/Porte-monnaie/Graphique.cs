@@ -10,6 +10,9 @@ namespace Porte_monnaie
     {
         Chart CammembertDepense = new Chart();
         Chart CammembertCredit = new Chart();
+        Color backColor = Color.Green;
+        Color LegendColor = Color.CadetBlue;
+        String PaletteStyle = "Excel";
 
         public Graphique()
         {
@@ -20,8 +23,8 @@ namespace Porte_monnaie
         {
             InitialisesGraphique("Débit", CammembertDepense);
             ChargeGraphique("Débit", pnlDepense, CammembertDepense);
-            InitialisesGraphique("Crédit",CammembertCredit);
-            ChargeGraphique("Crédit", PnlCredit,CammembertCredit);
+            InitialisesGraphique("Crédit", CammembertCredit);
+            ChargeGraphique("Crédit", PnlCredit, CammembertCredit);
         }
 
         /// <summary>
@@ -34,29 +37,71 @@ namespace Porte_monnaie
             //crée l'aire dans laquelle apparaitra le graphique
             ChartArea Aire = new ChartArea();
             //crée la legende du graphique (carré en haut a droite)
-            Legend Legende = new Legend() { BackColor = Color.CadetBlue, ForeColor = Color.Black, Title = "Catégories" };
+            Legend Legende = new Legend() { BackColor = LegendColor, ForeColor = Color.Black, Title = "Catégories" };
             Aire.Name = "AireDuCammembert";
             cammembert.ChartAreas.Add(Aire);
             cammembert.Dock = System.Windows.Forms.DockStyle.Fill;
-            Legende.Name = "Etat des "+motif;
+            Legende.Name = "Etat des " + motif;
             cammembert.Legends.Add(Legende);
             cammembert.Location = new System.Drawing.Point(0, 50);
         }
 
-       /// <summary>
+        /// <summary>
         /// charge le graphique, définit les parts du cammembert et le nom des catégories
-       /// </summary>
-       /// <param name="motif">Crédit ou Débit</param>
-       /// <param name="zone">Panel dans lequel le graphique sera affiché</param>
-       /// <param name="cammembert">Chart</param>
+        /// </summary>
+        /// <param name="motif">Crédit ou Débit</param>
+        /// <param name="zone">Panel dans lequel le graphique sera affiché</param>
+        /// <param name="cammembert">Chart</param>
         void ChargeGraphique(string motif, Panel zone, Chart cammembert)
         {
 
             //supprime toutes les parts du cammembert
             cammembert.Series.Clear();
-            //pallete de couleures
-            cammembert.Palette = ChartColorPalette.Excel;
-            cammembert.BackColor = Color.Green;
+
+            switch (PaletteStyle)
+            {
+                case "Bright":
+                    cammembert.Palette = ChartColorPalette.Bright;
+                    break;
+                case "Grayscale":
+                    cammembert.Palette = ChartColorPalette.Grayscale;
+                    break;
+                case "Excel":
+                    cammembert.Palette = ChartColorPalette.Excel;
+                    break;
+                case "Light":
+                    cammembert.Palette = ChartColorPalette.Light;
+                    break;
+                case "Pastel":
+                    cammembert.Palette = ChartColorPalette.Pastel;
+                    break;
+                case "EarthTones":
+                    cammembert.Palette = ChartColorPalette.EarthTones;
+                    break;
+                case "SemiTransparent":
+                    cammembert.Palette = ChartColorPalette.SemiTransparent;
+                    break;
+                case "Berry":
+                    cammembert.Palette = ChartColorPalette.Berry;
+                    break;
+                case "Chocolate":
+                    cammembert.Palette = ChartColorPalette.Chocolate;
+                    break;
+                case "Fire":
+                    cammembert.Palette = ChartColorPalette.Fire;
+                    break;
+                case "SeaGreen":
+                    cammembert.Palette = ChartColorPalette.SeaGreen;
+                    break;
+                case "BrightPastel":
+                    cammembert.Palette = ChartColorPalette.BrightPastel;
+                    break;
+                default:
+                    cammembert.Palette = ChartColorPalette.Excel;
+                    break;
+            }
+
+            cammembert.BackColor = backColor;
             //titre du graphique
             cammembert.Titles.Add("Etat des " + motif);
             cammembert.ChartAreas[0].BackColor = Color.Transparent;
@@ -121,6 +166,40 @@ namespace Porte_monnaie
 
 
             return serie;
+        }
+
+        private void Graphique_Resize(object sender, EventArgs e)
+        {
+            int centre = this.Width / 2;
+            pnlDepense.Width = centre;
+            PnlCredit.Location = new Point(centre, 12);
+            PnlCredit.Width = centre - 12;
+        }
+
+        private void choixDesCouleursToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmColor frmc = new FrmColor();
+            DialogResult DlgRslFrmC = frmc.ShowDialog();
+
+            if (DlgRslFrmC != DialogResult.Cancel)
+            {
+                this.PaletteStyle = frmc.cmbPalette.Text;
+                this.BackColor = frmc.btnBackColor.BackColor;
+                this.LegendColor = frmc.Btnlegendcolor.BackColor;
+
+                ResetChart(CammembertCredit);
+                ResetChart(CammembertDepense);                 
+                 
+                Graphique_Load(sender,e);
+            }
+        }
+
+        private void ResetChart(Chart cammembert)
+        {
+            cammembert.ChartAreas.Clear();
+            cammembert.Series.Clear();
+            cammembert.Legends.Clear();
+            cammembert.Titles.Clear();
         }
     }
 }

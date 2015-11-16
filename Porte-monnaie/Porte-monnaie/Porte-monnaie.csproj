@@ -73,6 +73,12 @@
     <Compile Include="EditionCategories.Designer.cs">
       <DependentUpon>EditionCategories.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmColor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmColor.Designer.cs">
+      <DependentUpon>FrmColor.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestionDB.cs" />
     <Compile Include="Graphique.cs">
       <SubType>Form</SubType>
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditionCategories.resx">
       <DependentUpon>EditionCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmColor.resx">
+      <DependentUpon>FrmColor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Graphique.resx">
       <DependentUpon>Graphique.cs</DependentUpon>
